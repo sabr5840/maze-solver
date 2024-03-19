@@ -7,9 +7,8 @@ body{
 
 #grid {
     display: grid;
-    grid-template-columns: repeat(7, max-content);
+    grid-template-columns: repeat(var(--GRID-WIDTH), max-content);
 }
-
 
 .cell {
     width: 32px;
@@ -18,7 +17,6 @@ body{
     border: 1px dotted #444;
     box-sizing: border-box;
 }
-
 
 .north{
     border-top: 2px solid #fffefe;
@@ -34,5 +32,13 @@ body{
 
 .west{
     border-left: 2px solid #ffffff;
+}
+
+.start {
+    background-color: rgb(0, 211, 0); 
+}
+
+.goal {
+    background-color: rgb(255, 2, 36);
 }
 

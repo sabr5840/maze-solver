@@ -45,13 +45,15 @@ function showMaze(){
             }
         }
     }
-    // showGoal() og showStart() bør ikke være inde i det ydre for-loop
     showGoal();
     showStart();
 }
 
 function createGrid(){
     const grid = document.querySelector("#grid");
+    grid.style.setProperty("--GRID-WIDTH", model.cols);
+
+
     for(let row = 0; row < model.rows; row++){
         for(let col = 0; col < model.cols; col++){
             const visualCell = document.createElement("div");
@@ -61,16 +63,17 @@ function createGrid(){
     }
 }
 
-function showGoal(){
-    const visitCells = document.querySelectorAll("#grid .cell");
-    const visualCellIndex = model.start.row * model.cols + model.start.col;
-    const visitCell = visitCells[visualCellIndex];
-    visitCell.classList.add("goal");
-}
 
 function showStart(){
     const visitCells = document.querySelectorAll("#grid .cell");
     const visualCellIndex = model.start.row * model.cols + model.start.col;
     const visitCell = visitCells[visualCellIndex];
     visitCell.classList.add("start");
+}
+
+function showGoal(){
+    const visitCells = document.querySelectorAll("#grid .cell");
+    const visualCellIndex = model.goal.row * model.cols + model.goal.col;
+    const visitCell = visitCells[visualCellIndex];
+    visitCell.classList.add("goal");
 }
